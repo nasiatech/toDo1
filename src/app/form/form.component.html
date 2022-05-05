@@ -1,8 +1,14 @@
-<div class="col-md-4 " >
-    <h1>Add Your toDo Item Below</h1>
+<div class="col-md-4 ">
+  <h1>Add Your toDo Item Below</h1>
+  <form [formGroup]="form" (submit)="submitTodo()">
     <div class="form-group">
-      <label for="">ToDO</label>
-      <input type="text" name="" id="" class="form-control" placeholder="" aria-describedby="helpId">
-      <button class="btn btn-lg btn-primary mt-2"  role="Submit">Save</button>
+      <label for="title">ToDO</label>
+      <input formControlName="title" type="text" name="title" id="title" class="form-control" placeholder="" aria-describedby="helpId">
+
+      <label for="desc">Description</label>
+      <textarea formControlName="desc" name="desc" id="desc" cols="30" rows="10" class="form-control" placeholder=""></textarea>
+      <button type="submit" class="btn btn-lg btn-primary mt-2" role="Submit" [disabled]="!form.valid">Save</button>
     </div>
-  </div>
+  </form>
+
+</div>
